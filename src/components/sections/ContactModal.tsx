@@ -202,12 +202,12 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
               <div>
                 <label htmlFor="message" className="block text-xs font-medium text-primary mb-1">
-                  Brief Note <span className="text-ink-subtle font-normal">(Optional)</span>
+                  General Note <span className="text-ink-subtle font-normal">(Optional — please do not include private medical or emergency information)</span>
                 </label>
                 <textarea
                   id="message"
-                  rows={3}
-                  placeholder="Share what you hope to explore in therapy..."
+                  rows={2}
+                  placeholder="General questions about session scheduling or practice logistics..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-lg border border-secondary-dark/40 bg-white text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
