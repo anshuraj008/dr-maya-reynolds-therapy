@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #24352F;
+    --color-secondary: #E9DED0;
+    --color-accent: #B8795B;
+    --color-surface: #FAF8F4;
+    --color-ink: #242723;
+    --section-y: clamp(3rem, 7vw, 6.5rem);
+    --content-max: 76rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+  }
+
+  body {
+    background-color: #FAF8F4;
+    color: #242723;
+    line-height: 1.65;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #E9DED0;
+    color: #24352F;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid #B8795B;
+    outline-offset: 3px;
+  }
+
+  /* Editorial typography defaults */
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif), Georgia, serif;
+    color: #24352F;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Reduced motion preference respect */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F4;
+}
+::-webkit-scrollbar-thumb {
+  background: #DFCFC0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8795B;
+}
