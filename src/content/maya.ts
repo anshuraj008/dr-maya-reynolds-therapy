@@ -231,13 +231,13 @@ export const mayaProfile = {
     title: "Ready to Create a Steadier, More Grounded Way Forward?",
     description:
       "Whether you are seeking in-person therapy in Santa Monica or secure telehealth across California, take the first step toward insight, regulation, and sustainable well-being.",
-    primaryButton: "Request a Consultation",
+    primaryButton: "Send Practice Inquiry",
     secondaryButton: "Explore Services",
   },
   disclaimer: {
     medical:
       "Disclaimer: This website is for informational purposes. If you are experiencing a life-threatening mental health emergency, please call 988 (Suicide & Crisis Lifeline), dial 911, or go to your nearest emergency room.",
     academic:
-      "Fictional Demonstration Site: Created for the Grow My Therapy selection assignment. Fictional clinician profile.",
+      "Demonstration Site: Created as an informational and visual showcase for Dr. Maya Reynolds, PsyD.",
   },
 } as const;

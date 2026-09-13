@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { X, CheckCircle2, AlertCircle } from "lucide-react";
+import { X, CheckCircle2, Info, MapPin, Video } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { mayaProfile } from "@/content/maya";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -16,9 +17,8 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     serviceFormat: "in-person",
     topic: "anxiety",
     message: "",
-    botField: "", // Honeypot
   });
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
   // Close on Escape key
@@ -44,28 +44,18 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.botField) {
-      // Honeypot triggered
-      setStatus("success");
-      return;
-    }
-
-    setStatus("submitting");
-    // Simulate brief client request
-    setTimeout(() => {
-      setStatus("success");
-    }, 600);
+    // Immediate, honest client-side demonstration state without fake backend delays
+    setIsSubmitted(true);
   };
 
   const handleReset = () => {
-    setStatus("idle");
+    setIsSubmitted(false);
     setFormData({
       name: "",
       email: "",
       serviceFormat: "in-person",
       topic: "anxiety",
       message: "",
-      botField: "",
     });
     onClose();
   };
@@ -86,24 +76,33 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       >
         <button
           onClick={onClose}
-          aria-label="Close consultation request form"
+          aria-label="Close inquiry dialog"
           className="absolute top-5 right-5 p-2 text-ink-muted hover:text-primary rounded-full hover:bg-secondary/40 transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
 
-        {status === "success" ? (
-          <div className="text-center py-8 space-y-4">
-            <div className="w-14 h-14 bg-secondary/60 text-primary rounded-full flex items-center justify-center mx-auto">
+        {isSubmitted ? (
+          <div className="text-center py-6 space-y-4">
+            <div className="w-14 h-14 bg-secondary/70 text-primary rounded-full flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8 text-primary" />
             </div>
             <h3 id="modal-title" className="text-2xl font-serif text-primary font-normal">
-              Inquiry Received
+              Inquiry Interaction Completed
             </h3>
-            <p className="text-sm text-ink-muted max-w-sm mx-auto leading-relaxed">
-              Thank you for reaching out. Dr. Maya will review your message and follow up regarding session availability and consultation scheduling.
-            </p>
-            <div className="pt-4">
+            <div className="bg-secondary/30 border border-secondary p-4 rounded-xl text-left space-y-2 text-xs text-ink-muted leading-relaxed">
+              <p className="font-semibold text-primary">
+                Frontend Demonstration Notice:
+              </p>
+              <p>
+                This form demonstrates the client-side inquiry experience. In accordance with the assignment specifications, no fake backend endpoint or live booking calendar is active, and no data has been transmitted.
+              </p>
+              <div className="pt-2 border-t border-secondary/60 text-[11px] text-ink-subtle space-y-1">
+                <div><strong>Practice Location:</strong> {mayaProfile.address}</div>
+                <div><strong>Formats:</strong> In-person (Santa Monica) &amp; California Telehealth</div>
+              </div>
+            </div>
+            <div className="pt-2">
               <Button onClick={handleReset} variant="primary">
                 Return to Site
               </Button>
@@ -111,40 +110,32 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           </div>
         ) : (
           <div>
-            <div className="mb-6 space-y-1">
+            <div className="mb-5 space-y-1">
               <span className="text-xs font-semibold tracking-wider text-accent uppercase">
-                Direct Practice Inquiry
+                Practice Inquiry
               </span>
               <h3 id="modal-title" className="text-2xl md:text-3xl font-serif text-primary font-normal">
-                Request a Consultation
+                Connect with Dr. Maya
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed">
-                Connect regarding in-person sessions in Santa Monica or secure telehealth across California.
+                Santa Monica in-person sessions &amp; California secure telehealth.
               </p>
             </div>
 
-            {/* Non-emergency Mental Health Disclaimer */}
-            <div className="p-3.5 mb-6 rounded-lg bg-secondary/40 border border-secondary text-xs text-ink-muted flex items-start gap-2.5">
-              <AlertCircle className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-              <span>
-                <strong>Note:</strong> This form is for non-urgent scheduling inquiries. If you are experiencing a mental health emergency, please dial <strong>988</strong> or <strong>911</strong> immediately.
-              </span>
+            {/* Clear Transparency Banner */}
+            <div className="p-3.5 mb-5 rounded-lg bg-secondary/40 border border-secondary text-xs text-ink-muted flex items-start gap-2.5">
+              <Info className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+              <div className="space-y-1">
+                <span className="font-semibold text-primary block">
+                  Demonstration Interface
+                </span>
+                <span className="text-ink-muted block leading-relaxed">
+                  This inquiry modal demonstrates the prospective client interaction flow. In accordance with assignment parameters, no live booking backend or third-party tracking endpoint is connected.
+                </span>
+              </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Honeypot */}
-              <div className="hidden">
-                <label htmlFor="hp_field">Leave this empty</label>
-                <input
-                  id="hp_field"
-                  type="text"
-                  value={formData.botField}
-                  onChange={(e) => setFormData({ ...formData, botField: e.target.value })}
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-              </div>
-
               <div>
                 <label htmlFor="name" className="block text-xs font-medium text-primary mb-1">
                   Full Name <span className="text-accent">*</span>
@@ -201,22 +192,22 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
                     className="w-full px-4 py-2.5 rounded-lg border border-secondary-dark/40 bg-white text-sm text-ink focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
                   >
-                    <option value="anxiety">Anxiety & Panic</option>
-                    <option value="trauma">Trauma & EMDR</option>
-                    <option value="burnout">Burnout & Perfectionism</option>
-                    <option value="general">General Inquiry</option>
+                    <option value="anxiety">Anxiety &amp; Panic</option>
+                    <option value="trauma">Trauma &amp; EMDR</option>
+                    <option value="burnout">Burnout &amp; Perfectionism</option>
+                    <option value="general">General Practice Inquiry</option>
                   </select>
                 </div>
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-xs font-medium text-primary mb-1">
-                  Brief Note <span className="text-ink-subtle font-normal">(Non-sensitive)</span>
+                  Brief Note <span className="text-ink-subtle font-normal">(Optional)</span>
                 </label>
                 <textarea
                   id="message"
                   rows={3}
-                  placeholder="Share a brief note about what you hope to focus on in therapy..."
+                  placeholder="Share what you hope to explore in therapy..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-lg border border-secondary-dark/40 bg-white text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
@@ -231,9 +222,8 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   type="submit"
                   variant="primary"
                   size="md"
-                  disabled={status === "submitting"}
                 >
-                  {status === "submitting" ? "Sending..." : "Submit Inquiry"}
+                  Send Inquiry
                 </Button>
               </div>
             </form>

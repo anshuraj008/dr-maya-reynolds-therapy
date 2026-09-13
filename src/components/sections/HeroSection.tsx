@@ -36,18 +36,18 @@ export function HeroSection({ onOpenConsultation }: HeroSectionProps) {
               <Button
                 variant="accent"
                 size="lg"
-                onClick={onOpenConsultation}
-                className="w-full sm:w-auto"
-              >
-                Schedule a Consultation
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
                 href="#services"
                 className="w-full sm:w-auto"
               >
                 {mayaProfile.hero.primaryCta}
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={onOpenConsultation}
+                className="w-full sm:w-auto"
+              >
+                Send Practice Inquiry
               </Button>
             </div>
 

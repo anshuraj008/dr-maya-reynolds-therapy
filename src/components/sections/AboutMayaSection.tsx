@@ -80,7 +80,7 @@ export function AboutMayaSection({ onOpenConsultation }: AboutMayaSectionProps) 
 
             <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <Button variant="accent" size="md" onClick={onOpenConsultation}>
-                Schedule a Consultation
+                Send Practice Inquiry
               </Button>
               <Button variant="outline" size="md" href="#office">
                 View Santa Monica Office

@@ -95,7 +95,7 @@ export function MobileNav({ onOpenConsultation }: MobileNavProps) {
                   onOpenConsultation?.();
                 }}
               >
-                Schedule Consultation
+                Send Practice Inquiry
               </Button>
               <p className="text-center text-xs text-ink-subtle">
                 Santa Monica Office & California Telehealth

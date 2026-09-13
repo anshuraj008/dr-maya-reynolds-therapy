@@ -91,11 +91,11 @@ export function ServiceGrid({ onOpenConsultation }: ServiceGridProps) {
         {/* Bottom Banner */}
         <div className="mt-14 p-6 rounded-2xl bg-secondary/30 border border-secondary text-center max-w-2xl mx-auto space-y-3">
           <p className="text-sm text-ink font-sans">
-            Not sure which area best fits what you are experiencing? We can explore your needs during an initial consultation.
+            Not sure which area best fits what you are experiencing? Reach out to discuss session formats and focus areas.
           </p>
           <div>
             <Button variant="outline" size="sm" onClick={onOpenConsultation}>
-              Schedule an Initial Consultation
+              Send Practice Inquiry
             </Button>
           </div>
         </div>

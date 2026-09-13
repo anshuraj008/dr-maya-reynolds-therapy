@@ -96,7 +96,7 @@ export function OfficeSection({ onOpenConsultation }: OfficeSectionProps) {
               <div className="space-y-1.5 pt-2">
                 <div className="flex items-center gap-2 text-xs text-primary font-medium">
                   <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
-                  <span>Private Santa Monica consultation room</span>
+                  <span>Private Santa Monica therapy office</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-primary font-medium">
                   <Video className="w-3.5 h-3.5 text-accent shrink-0" />
