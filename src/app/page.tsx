@@ -5,9 +5,11 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ServiceGrid } from "@/components/sections/ServiceGrid";
+import { EmotionalBreathingSection } from "@/components/sections/EmotionalBreathingSection";
 import { AboutMayaSection } from "@/components/sections/AboutMayaSection";
 import { OfficeSection } from "@/components/sections/OfficeSection";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { ContactModal } from "@/components/sections/ContactModal";
 
 export default function Home() {
@@ -32,14 +34,20 @@ export default function Home() {
         {/* 2. Three Focused Services */}
         <ServiceGrid onOpenConsultation={handleOpenInquiry} />
 
-        {/* 3. About Dr. Maya Reynolds, PsyD */}
+        {/* 3. Emotional Statement / Visual Breathing Room */}
+        <EmotionalBreathingSection />
+
+        {/* 4. About Dr. Maya Reynolds, PsyD */}
         <AboutMayaSection onOpenConsultation={handleOpenInquiry} />
 
-        {/* 4. Our Office Section (Assignment New Section) */}
+        {/* 5. Our Office Section (Assignment New Section) */}
         <OfficeSection onOpenConsultation={handleOpenInquiry} />
 
-        {/* 5. Frequently Asked Questions */}
+        {/* 6. Frequently Asked Questions */}
         <FaqSection onOpenConsultation={handleOpenInquiry} />
+
+        {/* 7. Final Grounding CTA Card */}
+        <FinalCtaSection onOpenConsultation={handleOpenInquiry} />
       </main>
 
       <Footer />
