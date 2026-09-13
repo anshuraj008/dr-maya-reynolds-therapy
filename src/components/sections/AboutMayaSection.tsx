@@ -59,7 +59,7 @@ export function AboutMayaSection({ onOpenConsultation }: AboutMayaSectionProps) 
             </div>
 
             {/* Quick Facts List */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
               {mayaProfile.about.details.map((detail) => (
                 <div
                   key={detail.label}
@@ -76,6 +76,23 @@ export function AboutMayaSection({ onOpenConsultation }: AboutMayaSectionProps) 
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Core Modalities Badges */}
+            <div className="pt-2">
+              <span className="block text-xs font-semibold text-primary uppercase tracking-wide mb-2">
+                Core Evidence-Based Modalities
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {mayaProfile.modalities.map((m) => (
+                  <span
+                    key={m.name}
+                    className="text-xs px-3 py-1 rounded-full bg-surface border border-secondary text-ink-muted font-medium"
+                  >
+                    {m.name}
+                  </span>
+                ))}
+              </div>
             </div>
 
             <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">

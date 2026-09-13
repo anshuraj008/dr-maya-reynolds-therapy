@@ -42,11 +42,11 @@ export function MobileNav({ onOpenConsultation }: MobileNavProps) {
 
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 bg-primary/50 backdrop-blur-sm"
+          className="fixed inset-0 z-50 bg-primary/60 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         >
           <div
-            className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-surface p-6 shadow-2xl flex flex-col justify-between"
+            className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-[#FAF8F4] border-l border-secondary p-6 shadow-2xl flex flex-col justify-between z-50"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"

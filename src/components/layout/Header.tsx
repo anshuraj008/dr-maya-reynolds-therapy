@@ -14,16 +14,16 @@ interface HeaderProps {
 export function Header({ onOpenConsultation }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 w-full bg-surface/90 backdrop-blur-md border-b border-secondary/60 transition-all">
-      <div className="max-w-editorial mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-editorial mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 md:h-18 flex items-center justify-between">
         {/* Brand */}
         <Link
           href="/"
           className="group flex flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent rounded-sm"
         >
-          <span className="font-serif text-xl sm:text-2xl font-normal text-primary group-hover:text-accent transition-colors tracking-tight">
+          <span className="font-serif text-lg sm:text-xl md:text-2xl font-normal text-primary group-hover:text-accent transition-colors tracking-tight leading-tight">
             {mayaProfile.name}
           </span>
-          <span className="text-xs text-ink-muted tracking-wide font-sans">
+          <span className="hidden sm:block text-[11px] text-ink-muted tracking-wide font-sans">
             Psychotherapy • {mayaProfile.location}
           </span>
         </Link>
@@ -31,7 +31,7 @@ export function Header({ onOpenConsultation }: HeaderProps) {
         {/* Desktop Navigation */}
         <nav
           aria-label="Main Navigation"
-          className="hidden md:flex items-center space-x-8"
+          className="hidden md:flex items-center space-x-7"
         >
           {navLinks.map((link) => (
             <Link
@@ -45,7 +45,7 @@ export function Header({ onOpenConsultation }: HeaderProps) {
         </nav>
 
         {/* CTA & Mobile Menu */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
           <Button
             variant="primary"
             size="sm"

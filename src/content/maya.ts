@@ -184,13 +184,13 @@ export const mayaProfile = {
     images: [
       {
         src: "/images/office/office-main.jpg",
-        alt: "Quiet and naturally lit therapy consultation room in Santa Monica with comfortable seating and garden views",
-        caption: "Main consultation room with natural morning sunlight and comfortable seating",
+        alt: "Dr. Maya Reynolds Santa Monica therapy office space",
+        caption: "Main therapy office with natural lighting and comfortable seating",
       },
       {
         src: "/images/office/office-detail.jpg",
-        alt: "Close-up detail of the comfortable linen armchair and calming wooden accents in Dr. Maya's Santa Monica office",
-        caption: "Uncluttered, comfortable setting designed to feel peaceful and grounding",
+        alt: "Interior detail of Dr. Maya Reynolds Santa Monica therapy room",
+        caption: "Quiet, comfortable space designed to feel calm and grounding",
       },
     ],
   },
